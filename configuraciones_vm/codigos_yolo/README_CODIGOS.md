@@ -282,5 +282,3 @@ Versiones de desarrollo previas al sistema actual. Mantienen estructura similar 
 ---
 
 **Última actualización:** 02/01/2026  
-**Autor:** Sistema de Conteo PonLab  
-**Versión de documento:** 1.0
