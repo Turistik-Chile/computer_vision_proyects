@@ -56,6 +56,44 @@ Una vez preparado el dataset:
 2. Subir a la nube (Google Drive u otro servicio)
 3. Procesarlo en Google Colab para realizar los entrenamientos
 
+## Sistema de Inferencia en Producción
+
+### Código Principal: `oasis.py`
+
+El sistema en producción utiliza el script **`oasis.py`** ubicado en `configuraciones_vm/codigos_yolo/`. Este código implementa:
+
+- **Conteo acumulativo inteligente** de personas y cabinas de teleférico
+- **Tracking persistente** con re-identificación de objetos perdidos
+- **Filtrado automático de operadores** (personas con permanencia >90s)
+- **Respaldo automático en Azure Blob Storage** (Azure Data Lake Gen2)
+- **Procesamiento de stream RTSP** en tiempo real
+- **Logs detallados** para debugging y auditoría
+
+### Ejecución
+
+```bash
+# Ejecución automática (modo daemon)
+cd configuraciones_vm/script
+./ejecutar.sh
+
+# Ejecución manual directa
+cd configuraciones_vm/codigos_yolo
+python3 oasis.py <minutos_de_captura>
+```
+
+### Documentación Completa
+
+Para conocer todos los scripts disponibles, sus diferencias y casos de uso específicos, consulta la documentación completa en:
+
+📄 **[README_CODIGOS.md](configuraciones_vm/codigos_yolo/README_CODIGOS.md)**
+
+Este documento incluye:
+
+- Descripción detallada de cada script
+- Comparación entre versiones
+- Tabla de características
+- Recomendaciones de uso según el caso
+
 ## Estructura del Proyecto
 
 - `model_cabinas/`: Modelos entrenados para detección de cabinas
@@ -63,3 +101,9 @@ Una vez preparado el dataset:
 - `pesos_bases/`: Pesos pre-entrenados de YOLOv11 (l, m, s)
 - `videocutter.py`: Script para extracción de fotogramas
 - `reorganizar_dataset.ipynb`: Notebook para preparación del dataset
+- `configuraciones_vm/`: Configuraciones y códigos para VM de producción
+  - `codigos_yolo/`: Scripts de inferencia y conteo (ver [README_CODIGOS.md](configuraciones_vm/codigos_yolo/README_CODIGOS.md))
+    - **`oasis.py`**: ⭐ Código principal en producción con Azure integration
+    - `ejecutar.sh`: Script de ejecución automática del sistema
+    - Otros scripts de desarrollo y testing
+  - `script/`: Scripts de utilidad y configuración
