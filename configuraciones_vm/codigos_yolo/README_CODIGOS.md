@@ -268,7 +268,8 @@ Versiones de desarrollo previas al sistema actual. Mantienen estructura similar 
 
 ### Configuraciones Comunes
 
-- **RTSP URL:** `rtsp://usertf:Tfo.-2525@172.16.10.22:554/cam/realmonitor?channel=5&subtype=0`
+- **RTSP URL:** `rtsp://usertf:Tfo.-2525@172.16.10.22:554/cam/realmonitor?channel=5&subtype=0` (OASIS EMBARQUE)
+- **RTSP URL:** `rtsp://usertf:Tfo.-2525@172.16.10.22:554/cam/realmonitor?channel=20&subtype=0` (OASIS CENITAL)
 - **Modelo:** `/home/aaravenatk/yolo/best.pt`
 - **Confianza:** 0.6-0.7 (60-70%)
 - **Clases:** 0=person, 1=teleferico
